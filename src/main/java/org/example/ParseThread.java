@@ -8,9 +8,6 @@ import com.google.gson.*;
 import java.sql.*;
 
 public class ParseThread extends Thread {
-    private static final String INPUT_FILE = "C:/Users/LENOVO/OneDrive/Bureau/Order_management/src/main/resources/Data/input.json";
-    private static final String OUTPUT_FILE = "C:/Users/LENOVO/OneDrive/Bureau/Order_management/src/main/resources/Data/output.json";
-    private static final String ERROR_FILE = "C:/Users/LENOVO/OneDrive/Bureau/Order_management/src/main/resources/Data/errors.json";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/order_management";
     private static final String DB_USER = "root";
     private static final String DB_PASS = "";
@@ -105,14 +102,6 @@ public class ParseThread extends Thread {
         }
     }
 
-    private void writeOrdersToFile(String filePath, List<Order> orders) {
-        try (Writer writer = new FileWriter(filePath)) {
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            gson.toJson(orders, writer);
-        } catch (IOException e) {
-            System.err.println("Error writing file: " + e.getMessage());
-        }
-    }
 
     private boolean customerExists(int customerId) throws SQLException {
         String query = "SELECT 1 FROM customer WHERE id = ?";
