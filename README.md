@@ -1,8 +1,6 @@
-Order management (using Thread,FileReader,JDBC )
---
+# Order management (using Thread,FileReader,JDBC )
 
-Tables :
-
+## Tables :
 CREATE TABLE `customer` (
   `id` int(11) NOT NULL,
   `nom` varchar(100) DEFAULT NULL,
